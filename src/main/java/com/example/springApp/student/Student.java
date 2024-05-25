@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.Period;
 
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Getter
 @Setter
 @Entity
@@ -29,13 +29,29 @@ public class Student {
     private String name;
     private LocalDate dob;
     private String email;
+    @Transient
     private Integer age;
 
-    public Student(String name, LocalDate dob, String email, Integer age) {
+    Student()
+    {
+
+    }
+    public Student(String name, LocalDate dob, String email) {
         this.name = name;
         this.dob = dob;
         this.email = email;
-        this.age = age;
+
+    }
+
+    public Student(long id, String name, LocalDate dob, String email) {
+        this.id = id;
+        this.name = name;
+        this.dob = dob;
+        this.email = email;
+    }
+
+    public Integer getAge() {
+        return Period.between(this.dob,LocalDate.now()).getYears();
     }
 
     @Override

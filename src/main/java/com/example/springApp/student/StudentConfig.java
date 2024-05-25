@@ -14,9 +14,9 @@ public class StudentConfig {
     CommandLineRunner commandLineRunner(StudentRepository repository){
         return args -> {
             Student utsav=new Student
-                        (1L,"Utsav", LocalDate.of(1996, Month.JANUARY,5),"ubansal1996@gmail.com",28);
+                        (1L,"Utsav", LocalDate.of(1996, Month.JANUARY,5),"ubansal1996@gmail.com");
             Student vasu=new Student
-                       ("vasu", LocalDate.of(1998, Month.JANUARY,5),"ubansal@gmail.com",25);
+                       ("vasu", LocalDate.of(1998, Month.JANUARY,5),"ubansal@gmail.com");
         repository.saveAll(List.of(utsav,vasu));
         };
 
